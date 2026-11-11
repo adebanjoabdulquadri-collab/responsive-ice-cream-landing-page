@@ -1,88 +1,182 @@
-<!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="description" content="Discover delicious, creamy ice cream in refreshing flavors like mint chocolate chip, cookies and cream, and vanilla. Choose your favorite and order today.">
-      <meta name="robots" content="index, follow">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Discover delicious, creamy ice cream in refreshing flavors like mint chocolate chip, cookies and cream, and vanilla. Choose your favorite and order today."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== TAILWIND ===============-->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false, // keeps your own reset in styles.css in charge
+          container: false, // Tailwind's .container would override your .container
+        },
+      };
+    </script>
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!--=============== REMIXICONS - (Insert link for icons) ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+    />
 
-      <!--=============== REMIXICONS - (Insert link for icons) ===============-->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css">
+    <!--=============== SWIPER CSS - (Insert link for swiperjs) ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css"
+    />
 
-      <!--=============== SWIPER CSS - (Insert link for swiperjs) ===============-->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Delicious Ice Cream | Fresh & Creamy Flavors</title>
+  </head>
+  <body class="flex flex-col">
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header ">
+      <nav class="nav container">
+        <a href="/index.html" class="nav__logo">Ice Cream</a>
 
-      <title>Delicious Ice Cream | Fresh & Creamy Flavors | Bedimcode</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-         <nav class="nav container">
-            <a href="/index.html" class="nav__logo">Ice Cream</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#" class="nav__link active-link">Home</a>
+            </li>
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li>
-                     <a href="#" class="nav__link active-link">Home</a>
-                  </li>
+            <li>
+              <a href="#" class="nav__link">Menu</a>
+            </li>
 
-                  <li>
-                     <a href="#" class="nav__link">Menu</a>
-                  </li>
+            <li>
+              <a href="#" class="nav__link">About</a>
+            </li>
 
-                  <li>
-                     <a href="#" class="nav__link">About</a>
-                  </li>
+            <li>
+              <a href="#" class="nav__link">Contact</a>
+            </li>
+          </ul>
 
-                  <li>
-                     <a href="#" class="nav__link">Contact</a>
-                  </li>
-               </ul>
+          <!-- Close -->
+          <button class="nav__close" id="nav-close" aria-label="Close menu">
+            <i class="ri-close-large-line"></i>
+          </button>
+        </div>
 
-               <!-- Close -->
-               <button class="nav__close" id="nav-close" aria-label="Close menu">
-                  <i class="ri-close-large-line"></i>
-               </button>
+        <div class="nav__actions">
+          <a href="#" class="nav__action" aria-label="Account">
+            <i class="ri-account-circle-line"></i>
+          </a>
+
+          <a href="#" class="nav__action" aria-label="Shopping bag">
+            <i class="ri-shopping-bag-3-line"></i>
+          </a>
+
+          <!-- Toggle -->
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+            <i class="ri-apps-2-line"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="home" id="home">
+        <!-- Backgrounds (one per ice cream) -->
+        <div class="home__bg home__bg--green active-bg"></div>
+        <div class="home__bg home__bg--brown"></div>
+        <div class="home__bg home__bg--blue"></div>
+
+        <div class="home__container container">
+          <!-- Swiper -->
+          <div class="swiper home__swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="./assets/img/ice-cream-1.png"
+                  alt="Mint chocolate chip ice cream"
+                  class="home__img"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./assets/img/ice-cream-2.png"
+                  alt="Cookies and cream ice cream"
+                  class="home__img"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./assets/img/ice-cream-3.png"
+                  alt="Vanilla ice cream"
+                  class="home__img"
+                />
+              </div>
             </div>
+          </div>
 
-            <div class="nav__actions">
-               <a href="#" class="nav__action" aria-label="Account">
-                  <i class="ri-account-circle-line"></i>
-               </a>
-
-               <a href="#" class="nav__action" aria-label="Shopping bag">
-                  <i class="ri-shopping-bag-3-line"></i>
-               </a>
-
-               <!-- Toggle -->
-               <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
-                  <i class="ri-apps-2-line"></i>
-               </button>
+          <!-- Text -->
+          <div class="home__data">
+            <h1 class="home__title">
+              Delicious <br />
+              Ice Cream
+            </h1>
+            <p class="home__description">
+              A refreshing ice cream, crafted to turn every spoonful into a
+              moment of sweetness, freshness, and pleasure.
+            </p>
+            <div class="home__buttons">
+              <button class="button">Order now</button>
+              <button class="button button--ghost">View flavors</button>
             </div>
-         </nav>
-      </header>
+          </div>
+        </div>
 
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== HOME ====================-->
-         <section class="home">
-            
-         </section>
-      </main>
+        <!-- Wavy image-->
+        <img src="./assets/img/waves-img.svg" alt="" class="home__wave" />
 
-      <!--=============== GSAP - (Insert link for animations) ===============-->
-      <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+        <!-- Bottom div -->
+        <div class="home__bottom container">
+          <div class="home__reviews">
+            <div class="home__people">
+              <img src="./assets/img/review-1.png" alt="Customer 1" />
+              <img src="./assets/img/review-2.png" alt="Customer 2" />
+              <img src="./assets/img/review-3.png" alt="Customer 3" />
+            </div>
+            <div>
+              <h4 class="home__reviews-title">10K Reviews</h4>
+              <p class="home__reviews-description">Our customers prefer us.</p>
+            </div>
+          </div>
 
-      <!--=============== SWIPER JS - (Insert link for swiperjs) ===============-->
-      <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
+          <div class="home__arrows">
+            <button class="swiper-button-prev" aria-label="Previous">
+              <i class="ri-arrow-left-circle-line"></i>
+            </button>
+            <button class="swiper-button-next" aria-label="Next">
+              <i class="ri-arrow-right-circle-line"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
+    <!--=============== GSAP - (Insert link for animations) ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <!--=============== SWIPER JS - (Insert link for swiperjs) ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

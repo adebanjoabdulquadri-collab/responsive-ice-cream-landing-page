@@ -7,12 +7,21 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --green-color-gradient: linear-gradient(135deg, hsl(138, 37%, 42%) 0%,
-                                                  hsl(138, 37%, 55%) 100%);
-  --brown-color-gradient: linear-gradient(135deg, hsl(16, 48%, 45%) 0%,
-                                                  hsl(16, 55%, 60%) 100%);
-  --blue-color-gradient: linear-gradient(135deg, hsl(200, 57%, 45%) 0%,
-                                                 hsl(200, 57%, 65%) 100%);
+  --green-color-gradient: linear-gradient(
+    135deg,
+    hsl(138, 37%, 42%) 0%,
+    hsl(138, 37%, 55%) 100%
+  );
+  --brown-color-gradient: linear-gradient(
+    135deg,
+    hsl(16, 48%, 45%) 0%,
+    hsl(16, 55%, 60%) 100%
+  );
+  --blue-color-gradient: linear-gradient(
+    135deg,
+    hsl(200, 57%, 45%) 0%,
+    hsl(200, 57%, 65%) 100%
+  );
   --cream-color: hsl(43, 96%, 88%);
   --white-color: hsl(0, 0%, 100%);
   --black-color: hsl(0, 0%, 0%);
@@ -25,7 +34,6 @@
   --normal-font-size: 0.938rem;
   --small-font-size: 0.75rem;
 }
-
 /*========== Responsive typography ==========*/
 @media (width >= 1150px) {
   :root {
@@ -46,6 +54,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--black-color);
+  background-color: hsl(138, 37%, 42%);
 }
 
 button {
@@ -74,9 +83,9 @@ img {
   margin-inline: 1rem;
 }
 
-.main {
+/* .main {
   overflow: hidden;
-}
+} */
 
 /*=============== HEADER & NAV ===============*/
 .header {
@@ -84,13 +93,15 @@ img {
   width: 100%;
   top: 0;
   left: 0;
-  background: var(--black-color);
-  transition: background-color 0.4s, box-shadow 0.4s;
+  background-color: transparent;
+  transition:
+    background-color 0.4s,
+    box-shadow 0.4s;
   z-index: 100;
 }
 
 .nav {
-  position: relative;
+  /* position: relative; */
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
@@ -109,7 +120,7 @@ img {
   column-gap: 0.5rem;
 }
 
-.nav__action, 
+.nav__action,
 .nav__toggle {
   font-size: 1.5rem;
   color: var(--white-color);
@@ -184,19 +195,14 @@ img {
 
 /*=============== HOME ===============*/
 
-
 /* Active background */
 
-
 /* Swiper class */
-
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices <> */
 
-
 /* For medium devices <> */
-
 
 /* For large devices <> */
 @media (width >= 1150px) {
@@ -207,7 +213,7 @@ img {
   .nav {
     height: calc(var(--header-height) + 2rem);
   }
-  .nav__toggle, 
+  .nav__toggle,
   .nav__close {
     display: none;
   }
@@ -226,4 +232,200 @@ img {
   }
 }
 
-/* For taller devices <> */
+/*=============== HOME ===============*/
+.home {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Backgrounds: only the active one is visible */
+.home__bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s;
+  z-index: -1;
+}
+.home__bg--green { background: var(--green-color-gradient); }
+.home__bg--brown { background: var(--brown-color-gradient); }
+.home__bg--blue  { background: var(--blue-color-gradient); }
+.active-bg { opacity: 1; }
+
+.home__container {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  row-gap: 2rem;
+  padding-block: 6rem 9rem; /* space for header and wave */
+}
+
+/* Swiper */
+.home__swiper {
+  width: 220px;
+  overflow: visible; /* lets the next ice cream peek out */
+}
+.home__swiper .swiper-slide {
+  overflow: visible; /* Swiper's creative effect sets hidden */
+}
+.home__img {
+  width: 100%;
+  filter: blur(6px);
+  transition: filter 0.4s;
+}
+.swiper-slide-active .home__img {
+  filter: blur(0);
+}
+
+/* Text */
+.home__data {
+  text-align: center;
+}
+.home__title {
+  font-family: var(--second-font);
+  font-size: var(--biggest-font-size);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+}
+.home__description {
+  color: var(--white-color);
+  max-width: 26rem;
+  margin: 0 auto 2rem;
+}
+.home__buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+/* Buttons */
+.button {
+  font-family: var(--body-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  cursor: pointer;
+  background-color: var(--cream-color);
+  color: var(--black-color);
+  box-shadow: 0 4px 0 hsl(138, 37%, 25%);
+  transition: transform 0.3s;
+}
+.button--ghost {
+  background-color: hsl(138, 37%, 32%);
+  color: var(--white-color);
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* Wave: behind the ice cream, above the background */
+.home__wave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  object-position: top;
+  z-index: 0;
+}
+
+/* Bottom bar */
+.home__bottom {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 1.5rem;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home__reviews {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+}
+.home__people {
+  display: flex;
+}
+.home__people img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cream-color);
+}
+.home__people img + img {
+  margin-left: -0.75rem;
+}
+.home__reviews-title {
+  font-size: var(--normal-font-size);
+  font-weight: 600;
+}
+.home__reviews-description {
+  font-size: var(--small-font-size);
+}
+
+/* Arrows: override Swiper's default arrow styles */
+.home__arrows {
+  display: flex;
+  column-gap: 0.75rem;
+}
+.home .swiper-button-prev,
+.home .swiper-button-next {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: 2.25rem;
+  color: var(--black-color);
+  cursor: pointer;
+}
+.home .swiper-button-prev::after,
+.home .swiper-button-next::after {
+  content: none;
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media (width >= 548px) {
+  .home__swiper { width: 240px; }
+}
+
+@media (width >= 768px) {
+  .home__swiper { width: 280px; }
+  .home__wave { height: 14rem; }
+}
+
+@media (width >= 1150px) {
+  .home {
+    height: 100svh;
+    min-height: 34rem;
+    max-height: 60rem; /* stops it getting too tall on big monitors */
+  }
+  .home__container {
+    height: 100%;
+    min-height: 0;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding-block: 7rem 8rem; /* top clears the nav, bottom clears the wave */
+  }
+  .home__data {
+    grid-area: 1 / 1;
+    text-align: left;
+  }
+  .home__swiper {
+    grid-area: 1 / 2;
+    width: min(320px, 40vh);
+    margin-bottom: -2rem; /* sinks the cup base into the wave */
+     position: relative; z-index: 1;
+  }
+  .home__description { margin-inline: 0; }
+  .home__buttons { justify-content: flex-start; }
+  .home__wave { height: min(15rem, 28vh); }
+  .home__bottom { bottom: 2.25rem; }
+  .home__people img { width: 50px; height: 50px; }
+}
